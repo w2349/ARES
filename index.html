@@ -4,73 +4,187 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Team ARES - Formula 1 in Schools</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-margin: 0;
-padding: 0;
-background-color: #000; /* Sfondo nero */
-color: #fff; /* Testo bianco */
-font-family: 'Arial Narrow', sans-serif; /* Font alto e stretto */
-line-height: 1.6;
+  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 25%, #151515 50%, #0f0f0f 75%, #000000 100%);
+  min-height: 100vh;
+  color: #f0f0f0;
+  font-family: 'IBM Plex Mono', monospace;
+  line-height: 1.7;
+  letter-spacing: 0.5px;
 }
+
 header {
-text-align: center;
-padding: 20px;
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(180deg, rgba(30,30,30,0.8) 0%, rgba(10,10,10,0.5) 100%);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
 }
+
 header h1 {
-font-size: 2.5em;
-font-weight: bold;
+  font-size: 3.5em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
+
 section {
-max-width: 800px;
-margin: 0 auto;
-padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 30px;
 }
+
+section:nth-child(odd) {
+  background: linear-gradient(180deg, rgba(20,20,20,0.3) 0%, rgba(10,10,10,0.1) 100%);
+  border-left: 4px solid rgba(255, 255, 255, 0.15);
+  padding-left: 40px;
+  margin-bottom: 40px;
+  border-radius: 4px;
+}
+
 section h2 {
-color: #fff;
-font-size: 1.8em;
-font-weight: bold;
-margin-bottom: 10px;
+  color: #ffffff;
+  font-size: 2.2em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  padding-bottom: 15px;
 }
+
+section h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+}
+
 p {
-margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-size: 1.05em;
+  color: #d0d0d0;
+  line-height: 1.8;
+  font-weight: 400;
 }
+
 footer {
-text-align: center;
-margin-top: 40px;
-font-size: 0.9em;
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px 20px;
+  background: linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(0,0,0,0.8) 100%);
+  border-top: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 1em;
 }
+
 footer p {
-margin: 5px 0;
+  margin: 12px 0;
+  font-weight: 500;
 }
+
 footer a {
-color: #fff;
-text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
 }
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  transition: width 0.3s ease;
+}
+
 footer a:hover {
-text-decoration: underline;
+  color: #f0f0f0;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
+/* Animazione di ingresso */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: slideInUp 0.8s ease-out;
+}
+
+section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+section:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5em;
+  }
+  
+  section h2 {
+    font-size: 1.8em;
+  }
+  
+  p {
+    font-size: 1em;
+  }
+  
+  section {
+    padding: 40px 20px;
+  }
 }
 </style>
 </head>
 <body>
 <header>
-<h1> Chi Siamo</h1>
+<h1>CHI SIAMO</h1>
 </header>
+
 <section>
-<h2>Siamo il Team ARES</h2>
-<p>Siamo il Team ARES, un gruppo di studenti dell’IISS Quinto Orazio Flacco uniti dalla passione per l’ingegneria, la tecnologia e la velocità. Progettiamo e sviluppiamo monoposto di Formula 1 in 3D utilizzando Autodesk Inventor, trasformando idee innovative in modelli reali pronti per la competizione.</p>
-
-<h2>Le nostre competenze</h2>
-<p>Unione di ingegneria meccanica, progettazione CAD, elettronica e problem solving. Utilizziamo software di modellazione 3D e strumenti tecnici per progettare auto sempre più leggere, resistenti e performanti.</p>
-
-<h2>Il nostro obiettivo finale</h2>
-<p>Raggiungere l’eccellenza nella competizione Formula 1 in Schools, rappresentando la nostra scuola con innovazione, spirito di squadra e determinazione verso il successo internazionale.</p>
+<h2>TEAM ARES</h2>
+<p>Siamo il Team ARES, un gruppo di studenti dell'IISS Quinto Orazio Flacco uniti dalla passione per l'ingegneria, la tecnologia e la velocità. Progettiamo e sviluppiamo monoposto di Formula 1 in 3D utilizzando Autodesk Inventor, trasformando idee innovative in modelli reali pronti per la competizione.</p>
 </section>
-<footer>
-<p>Contattaci:</p>
-<p>Instagram: <a href="https://instagram.com/ares_racing_team" target="_blank">@ares_racing_team</a></p>
-<p>TikTok: <a href="https://tiktok.com/@ares_racing_team" target="_blank">@ares_racing_team</a></p>
-<p>Email: <a href="mailto:aresracing2026@gmail.com">aresracing2026@gmail.com</a></p>
-</footer>
-</body>
-</html>
+
+<section>
+<h2>LE NOSTRE COMPETENZE</h2>
+<p>Unione di

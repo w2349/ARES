@@ -141,6 +141,7 @@ section h2 {
   font-size: 1.6em;
   font-weight: 700;
   margin-bottom: 20px;
+  margin-left: 20px;
   line-height: 1.2;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -153,7 +154,7 @@ section h2::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 20px;
   width: 50px;
   height: 3px;
   background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
@@ -270,6 +271,8 @@ section:nth-child(4) {
   <div class="language-dropdown" id="languageDropdown">
     <button onclick="switchLanguage('it')" class="lang-option active" data-lang="it">Italiano</button>
     <button onclick="switchLanguage('en')" class="lang-option" data-lang="en">English</button>
+    <button onclick="switchLanguage('es')" class="lang-option" data-lang="es">Español</button>
+    <button onclick="switchLanguage('fr')" class="lang-option" data-lang="fr">Français</button>
   </div>
 </div>
 </header>
@@ -317,6 +320,26 @@ const translations = {
     goal: 'OUR OBJECTIVE',
     'goal-desc': 'To achieve excellence in the Formula 1 in Schools competition, representing our school with innovation, teamwork and determination towards international success.',
     contact: 'CONTACT US:'
+  },
+  es: {
+    header: 'ESTO ES ARES',
+    team: 'QUIÉNES SOMOS',
+    'team-desc': 'Somos el Team ARES, un grupo de estudiantes del IISS Quinto Orazio Flacco unidos por la pasión por la ingeniería, la tecnología y la velocidad. Diseñamos y desarrollamos monoplazas de Fórmula 1 en 3D utilizando Autodesk Inventor, transformando ideas innovadoras en modelos reales listos para la competencia.',
+    skills: 'NUESTRAS HABILIDADES',
+    'skills-desc': 'Combinación de ingeniería mecánica, diseño CAD, electrónica y resolución de problemas. Utilizamos software de modelado 3D y herramientas técnicas para diseñar autos cada vez más ligeros, resistentes y eficientes.',
+    goal: 'NUESTRO OBJETIVO',
+    'goal-desc': 'Lograr la excelencia en la competencia Formula 1 in Schools, representando nuestra escuela con innovación, trabajo en equipo y determinación hacia el éxito internacional.',
+    contact: 'CONTÁCTENOS:'
+  },
+  fr: {
+    header: 'C\'EST ARES',
+    team: 'QUI SOMMES-NOUS',
+    'team-desc': 'Nous sommes l\'équipe ARES, un groupe d\'étudiants de l\'IISS Quinto Orazio Flacco unis par la passion pour l\'ingénierie, la technologie et la vitesse. Nous concevons et développons des monoplaces de Formule 1 en 3D en utilisant Autodesk Inventor, transformant des idées novatrices en modèles réels prêts pour la compétition.',
+    skills: 'NOS COMPÉTENCES',
+    'skills-desc': 'Combinaison d\'ingénierie mécanique, de conception CAO, d\'électronique et de résolution de problèmes. Nous utilisons des logiciels de modélisation 3D et des outils techniques pour concevoir des voitures de plus en plus légères, robustes et efficaces.',
+    goal: 'NOTRE OBJECTIF',
+    'goal-desc': 'Atteindre l\'excellence dans la compétition Formula 1 in Schools, représentant notre école avec innovation, travail d\'équipe et détermination vers le succès international.',
+    contact: 'NOUS CONTACTER:'
   }
 };
 

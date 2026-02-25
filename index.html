@@ -23,12 +23,21 @@ body {
 
 header {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  background: #000000;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  gap: 30px;
+}
+
+.header-content {
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 60px 20px;
-  background: linear-gradient(180deg, rgba(30,30,30,0.8) 0%, rgba(10,10,10,0.5) 100%);
-  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 1200px;
 }
 
 header h1 {
@@ -39,6 +48,7 @@ header h1 {
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: none;
+  flex-grow: 1;
 }
 
 .language-selector {
@@ -125,6 +135,22 @@ header h1 {
   background: rgba(255, 255, 255, 0.15);
 }
 
+.banner {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000000;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 section {
   max-width: 900px;
   margin: 0 auto;
@@ -148,16 +174,7 @@ section h2 {
   position: relative;
   padding-bottom: 15px;
   text-align: left;
-}
-
-section h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 200px;
-  width: 50px;
-  height: 3px;
-  background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
+  width: fit-content;
 }
 
 p {
@@ -173,7 +190,7 @@ footer {
   text-align: center;
   margin-top: 60px;
   padding: 40px 20px;
-  background: linear-gradient(180deg, rgba(10,10,10,0.5) 0%, rgba(0,0,0,0.8) 100%);
+  background: #000000;
   border-top: 2px solid rgba(255, 255, 255, 0.1);
   font-size: 1em;
 }
@@ -245,6 +262,11 @@ section:nth-child(4) {
     gap: 20px;
   }
 
+  .header-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
   header h1 {
     font-size: 1.5em;
   }
@@ -252,10 +274,6 @@ section:nth-child(4) {
   section h2 {
     font-size: 1.4em;
     margin-left: 20px;
-  }
-
-  section h2::after {
-    left: 20px;
   }
   
   p {
@@ -265,22 +283,30 @@ section:nth-child(4) {
   section {
     padding: 40px 20px;
   }
+
+  .banner img {
+    max-height: 200px;
+  }
 }
 </style>
 </head>
 <body>
 <header>
-<h1 data-i18n="header">QUESTO E' ARES</h1>
-<div class="language-selector">
-  <button class="language-btn" onclick="toggleLanguageDropdown()">LANGUAGE</button>
-  <div class="language-dropdown" id="languageDropdown">
-    <button onclick="switchLanguage('it')" class="lang-option active" data-lang="it">Italiano</button>
-    <button onclick="switchLanguage('en')" class="lang-option" data-lang="en">English</button>
-    <button onclick="switchLanguage('es')" class="lang-option" data-lang="es">Español</button>
-    <button onclick="switchLanguage('fr')" class="lang-option" data-lang="fr">Français</button>
+<div class="header-content">
+  <h1 data-i18n="header">QUESTO E' ARES</h1>
+  <div class="language-selector">
+    <button class="language-btn" onclick="toggleLanguageDropdown()">LANGUAGE</button>
+    <div class="language-dropdown" id="languageDropdown">
+      <button onclick="switchLanguage('it')" class="lang-option active" data-lang="it">Italiano</button>
+      <button onclick="switchLanguage('en')" class="lang-option" data-lang="en">English</button>
+    </div>
   </div>
 </div>
 </header>
+
+<div class="banner">
+  <img src="./images/banner.jpg" alt="Team ARES Banner">
+</div>
 
 <section>
 <h2 data-i18n="team">CHI SIAMO</h2>
@@ -325,26 +351,6 @@ const translations = {
     goal: 'OUR OBJECTIVE',
     'goal-desc': 'To achieve excellence in the Formula 1 in Schools competition, representing our school with innovation, teamwork and determination towards international success.',
     contact: 'CONTACT US:'
-  },
-  es: {
-    header: 'ESTO ES ARES',
-    team: 'QUIÉNES SOMOS',
-    'team-desc': 'Somos el Team ARES, un grupo de estudiantes del IISS Quinto Orazio Flacco unidos por la pasión por la ingeniería, la tecnología y la velocidad. Diseñamos y desarrollamos monoplazas de Fórmula 1 en 3D utilizando Autodesk Inventor, transformando ideas innovadoras en modelos reales listos para la competencia.',
-    skills: 'NUESTRAS HABILIDADES',
-    'skills-desc': 'Combinación de ingeniería mecánica, diseño CAD, electrónica y resolución de problemas. Utilizamos software de modelado 3D y herramientas técnicas para diseñar autos cada vez más ligeros, resistentes y eficientes.',
-    goal: 'NUESTRO OBJETIVO',
-    'goal-desc': 'Lograr la excelencia en la competencia Formula 1 in Schools, representando nuestra escuela con innovación, trabajo en equipo y determinación hacia el éxito internacional.',
-    contact: 'CONTÁCTENOS:'
-  },
-  fr: {
-    header: 'C\'EST ARES',
-    team: 'QUI SOMMES-NOUS',
-    'team-desc': 'Nous sommes l\'équipe ARES, un groupe d\'étudiants de l\'IISS Quinto Orazio Flacco unis par la passion pour l\'ingénierie, la technologie et la vitesse. Nous concevons et développons des monoplaces de Formule 1 en 3D en utilisant Autodesk Inventor, transformant des idées novatrices en modèles réels prêts pour la compétition.',
-    skills: 'NOS COMPÉTENCES',
-    'skills-desc': 'Combinaison d\'ingénierie mécanique, de conception CAO, d\'électronique et de résolution de problèmes. Nous utilisons des logiciels de modélisation 3D et des outils techniques pour concevoir des voitures de plus en plus légères, robustes et efficaces.',
-    goal: 'NOTRE OBJECTIF',
-    'goal-desc': 'Atteindre l\'excellence dans la compétition Formula 1 in Schools, représentant notre école avec innovation, travail d\'équipe et détermination vers le succès international.',
-    contact: 'NOUS CONTACTER:'
   }
 };
 
@@ -359,7 +365,6 @@ function switchLanguage(lang) {
   currentLanguage = lang;
   document.documentElement.lang = lang;
   
-  // Aggiorna tutti gli elementi con data-i18n
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     if (translations[lang][key]) {
@@ -367,7 +372,6 @@ function switchLanguage(lang) {
     }
   });
 
-  // Aggiorna il button attivo nel dropdown
   document.querySelectorAll('.lang-option').forEach(btn => {
     btn.classList.remove('active');
     if (btn.getAttribute('data-lang') === lang) {
@@ -375,20 +379,15 @@ function switchLanguage(lang) {
     }
   });
 
-  // Chiude il dropdown
   document.getElementById('languageDropdown').classList.remove('active');
-
-  // Salva la preferenza
   localStorage.setItem('language', lang);
 }
 
-// Carica la lingua salvata al caricamento della pagina
 window.addEventListener('DOMContentLoaded', () => {
   const savedLanguage = localStorage.getItem('language') || 'it';
   switchLanguage(savedLanguage);
 });
 
-// Chiude il dropdown quando si clicca fuori
 document.addEventListener('click', (e) => {
   const selector = document.querySelector('.language-selector');
   if (!selector.contains(e.target)) {

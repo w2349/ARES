@@ -22,7 +22,9 @@ body {
 }
 
 header {
-  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 60px 20px;
   background: linear-gradient(180deg, rgba(30,30,30,0.8) 0%, rgba(10,10,10,0.5) 100%);
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
@@ -37,6 +39,90 @@ header h1 {
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: none;
+}
+
+.language-selector {
+  position: relative;
+}
+
+.language-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 10px 20px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.language-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.language-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  margin-top: 10px;
+  min-width: 150px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+.language-dropdown.active {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.language-dropdown button {
+  width: 100%;
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.9em;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.language-dropdown button:last-child {
+  border-bottom: none;
+}
+
+.language-dropdown button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding-left: 25px;
+}
+
+.language-dropdown button.active {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.15);
 }
 
 section {
@@ -153,6 +239,11 @@ section:nth-child(4) {
 
 /* Responsive */
 @media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 20px;
+  }
+
   header h1 {
     font-size: 1.5em;
   }
@@ -174,28 +265,106 @@ section:nth-child(4) {
 <body>
 <header>
 <h1>CHI SIAMO</h1>
+<div class="language-selector">
+  <button class="language-btn" onclick="toggleLanguageDropdown()">LANGUAGE</button>
+  <div class="language-dropdown" id="languageDropdown">
+    <button onclick="switchLanguage('it')" class="lang-option active" data-lang="it">Italiano</button>
+    <button onclick="switchLanguage('en')" class="lang-option" data-lang="en">English</button>
+  </div>
+</div>
 </header>
 
 <section>
-<h2>TEAM ARES</h2>
-<p>Siamo il Team ARES, un gruppo di studenti dell'IISS Quinto Orazio Flacco uniti dalla passione per l'ingegneria, la tecnologia e la velocità. Progettiamo e sviluppiamo monoposto di Formula 1 in 3D utilizzando Autodesk Inventor, trasformando idee innovative in modelli reali pronti per la competizione.</p>
+<h2 data-i18n="team">TEAM ARES</h2>
+<p data-i18n="team-desc">Siamo il Team ARES, un gruppo di studenti dell'IISS Quinto Orazio Flacco uniti dalla passione per l'ingegneria, la tecnologia e la velocità. Progettiamo e sviluppiamo monoposto di Formula 1 in 3D utilizzando Autodesk Inventor, trasformando idee innovative in modelli reali pronti per la competizione.</p>
 </section>
 
 <section>
-<h2>LE NOSTRE COMPETENZE</h2>
-<p>Unione di ingegneria meccanica, progettazione CAD, elettronica e problem solving. Utilizziamo software di modellazione 3D e strumenti tecnici per progettare auto sempre più leggere, resistenti e performanti.</p>
+<h2 data-i18n="skills">LE NOSTRE COMPETENZE</h2>
+<p data-i18n="skills-desc">Unione di ingegneria meccanica, progettazione CAD, elettronica e problem solving. Utilizziamo software di modellazione 3D e strumenti tecnici per progettare auto sempre più leggere, resistenti e performanti.</p>
 </section>
 
 <section>
-<h2>IL NOSTRO OBIETTIVO</h2>
-<p>Raggiungere l'eccellenza nella competizione Formula 1 in Schools, rappresentando la nostra scuola con innovazione, spirito di squadra e determinazione verso il successo internazionale.</p>
+<h2 data-i18n="goal">IL NOSTRO OBIETTIVO</h2>
+<p data-i18n="goal-desc">Raggiungere l'eccellenza nella competizione Formula 1 in Schools, rappresentando la nostra scuola con innovazione, spirito di squadra e determinazione verso il successo internazionale.</p>
 </section>
 
 <footer>
-<p>CONTATTACI:</p>
+<p data-i18n="contact">CONTATTACI:</p>
 <p>Instagram: <a href="https://instagram.com/ares_racing_team" target="_blank">@ares_racing_team</a></p>
 <p>TikTok: <a href="https://tiktok.com/@ares_racing_team" target="_blank">@ares_racing_team</a></p>
 <p>Email: <a href="mailto:aresracing2026@gmail.com">aresracing2026@gmail.com</a></p>
 </footer>
+
+<script>
+const translations = {
+  it: {
+    team: 'TEAM ARES',
+    'team-desc': 'Siamo il Team ARES, un gruppo di studenti dell\'IISS Quinto Orazio Flacco uniti dalla passione per l\'ingegneria, la tecnologia e la velocità. Progettiamo e sviluppiamo monoposto di Formula 1 in 3D utilizzando Autodesk Inventor, trasformando idee innovative in modelli reali pronti per la competizione.',
+    skills: 'LE NOSTRE COMPETENZE',
+    'skills-desc': 'Unione di ingegneria meccanica, progettazione CAD, elettronica e problem solving. Utilizziamo software di modellazione 3D e strumenti tecnici per progettare auto sempre più leggere, resistenti e performanti.',
+    goal: 'IL NOSTRO OBIETTIVO',
+    'goal-desc': 'Raggiungere l\'eccellenza nella competizione Formula 1 in Schools, rappresentando la nostra scuola con innovazione, spirito di squadra e determinazione verso il successo internazionale.',
+    contact: 'CONTATTACI:'
+  },
+  en: {
+    team: 'TEAM ARES',
+    'team-desc': 'We are Team ARES, a group of students from IISS Quinto Orazio Flacco united by a passion for engineering, technology and speed. We design and develop Formula 1 single-seaters in 3D using Autodesk Inventor, transforming innovative ideas into real models ready for competition.',
+    skills: 'OUR SKILLS',
+    'skills-desc': 'A combination of mechanical engineering, CAD design, electronics and problem solving. We use 3D modeling software and technical tools to design cars that are increasingly lighter, stronger and more efficient.',
+    goal: 'OUR OBJECTIVE',
+    'goal-desc': 'To achieve excellence in the Formula 1 in Schools competition, representing our school with innovation, teamwork and determination towards international success.',
+    contact: 'CONTACT US:'
+  }
+};
+
+let currentLanguage = 'it';
+
+function toggleLanguageDropdown() {
+  const dropdown = document.getElementById('languageDropdown');
+  dropdown.classList.toggle('active');
+}
+
+function switchLanguage(lang) {
+  currentLanguage = lang;
+  document.documentElement.lang = lang;
+  
+  // Aggiorna tutti gli elementi con data-i18n
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    if (translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  // Aggiorna il button attivo nel dropdown
+  document.querySelectorAll('.lang-option').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.getAttribute('data-lang') === lang) {
+      btn.classList.add('active');
+    }
+  });
+
+  // Chiude il dropdown
+  document.getElementById('languageDropdown').classList.remove('active');
+
+  // Salva la preferenza
+  localStorage.setItem('language', lang);
+}
+
+// Carica la lingua salvata al caricamento della pagina
+window.addEventListener('DOMContentLoaded', () => {
+  const savedLanguage = localStorage.getItem('language') || 'it';
+  switchLanguage(savedLanguage);
+});
+
+// Chiude il dropdown quando si clicca fuori
+document.addEventListener('click', (e) => {
+  const selector = document.querySelector('.language-selector');
+  if (!selector.contains(e.target)) {
+    document.getElementById('languageDropdown').classList.remove('active');
+  }
+});
+</script>
 </body>
 </html>

@@ -34,10 +34,11 @@ header {
 
 .header-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100%;
   max-width: 1200px;
+  position: relative;
 }
 
 header h1 {
@@ -48,11 +49,13 @@ header h1 {
   text-transform: uppercase;
   color: #ffffff;
   text-shadow: none;
+  text-align: center;
   flex-grow: 1;
 }
 
 .language-selector {
-  position: relative;
+  position: absolute;
+  right: 0;
 }
 
 .language-btn {
@@ -149,6 +152,7 @@ header h1 {
   width: 100%;
   height: auto;
   object-fit: cover;
+  display: block;
 }
 
 section {
@@ -263,12 +267,19 @@ section:nth-child(4) {
   }
 
   .header-content {
-    flex-direction: column;
-    gap: 20px;
+    position: relative;
+    justify-content: center;
   }
 
   header h1 {
     font-size: 1.5em;
+    text-align: center;
+  }
+
+  .language-selector {
+    position: absolute;
+    right: 0;
+    top: 0;
   }
   
   section h2 {
@@ -305,7 +316,7 @@ section:nth-child(4) {
 </header>
 
 <div class="banner">
-  <img src="./images/banner.jpg" alt="Team ARES Banner">
+  <img src="./images/banner.jpg" alt="">
 </div>
 
 <section>

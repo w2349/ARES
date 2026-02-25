@@ -22,7 +22,7 @@ body {
 }
 
 header {
-  text-align: center;
+  text-align: left;
   padding: 60px 20px;
   background: linear-gradient(180deg, rgba(30,30,30,0.8) 0%, rgba(10,10,10,0.5) 100%);
   border-bottom: 2px solid rgba(255, 255, 255, 0.1);
@@ -30,25 +30,19 @@ header {
 }
 
 header h1 {
-  font-size: 3.5em;
+  font-size: 1.8em;
   font-weight: 700;
   letter-spacing: 2px;
   line-height: 1.1;
   text-transform: uppercase;
-  background: linear-gradient(180deg, #ffffff 0%, #b0b0b0 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  text-shadow: none;
 }
 
 section {
   max-width: 900px;
   margin: 0 auto;
   padding: 60px 30px;
-}
-
-section:nth-child(odd) {
   background: linear-gradient(180deg, rgba(20,20,20,0.3) 0%, rgba(10,10,10,0.1) 100%);
   border-left: 4px solid rgba(255, 255, 255, 0.15);
   padding-left: 40px;
@@ -58,7 +52,7 @@ section:nth-child(odd) {
 
 section h2 {
   color: #ffffff;
-  font-size: 2.2em;
+  font-size: 1.6em;
   font-weight: 700;
   margin-bottom: 20px;
   line-height: 1.2;
@@ -66,6 +60,7 @@ section h2 {
   text-transform: uppercase;
   position: relative;
   padding-bottom: 15px;
+  text-align: left;
 }
 
 section h2::after {
@@ -84,6 +79,7 @@ p {
   color: #d0d0d0;
   line-height: 1.8;
   font-weight: 400;
+  text-align: left;
 }
 
 footer {
@@ -158,11 +154,11 @@ section:nth-child(4) {
 /* Responsive */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 2.5em;
+    font-size: 1.5em;
   }
   
   section h2 {
-    font-size: 1.8em;
+    font-size: 1.4em;
   }
   
   p {

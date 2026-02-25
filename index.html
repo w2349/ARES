@@ -141,7 +141,7 @@ section h2 {
   font-size: 1.6em;
   font-weight: 700;
   margin-bottom: 20px;
-  margin-left: 20px;
+  margin-left: 200px;
   line-height: 1.2;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -154,7 +154,7 @@ section h2::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 20px;
+  left: 200px;
   width: 50px;
   height: 3px;
   background: linear-gradient(90deg, #ffffff 0%, rgba(255,255,255,0) 100%);
@@ -251,6 +251,11 @@ section:nth-child(4) {
   
   section h2 {
     font-size: 1.4em;
+    margin-left: 20px;
+  }
+
+  section h2::after {
+    left: 20px;
   }
   
   p {
